@@ -1,0 +1,19 @@
+.contact {
+    width: 239px;
+    height: 85px;
+    padding-left: 9px !important;
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    border-right: solid 3px;
+}
+
+.context {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+}
