@@ -2,6 +2,11 @@
     height: 117px;
 }
 
+.logo img{
+    width: 265px;
+    height: 122px;
+}
+
 .tag {
     font-family: 'Inter';
     font-style: normal;
@@ -15,5 +20,5 @@
 
 .branch {
     display: flex;
-    overflow: visible !important;
+    overflow: visible;
 }
