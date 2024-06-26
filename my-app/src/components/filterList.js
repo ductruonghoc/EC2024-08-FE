@@ -6,7 +6,7 @@ const FilterList = ({ items, onItemClick}) => {
       <div className="filter">
         {items.map((item, index) => (
           <div
-            className="item"
+            className="item clickable"
             key={index}
             onClick={() => onItemClick(item)}
           >

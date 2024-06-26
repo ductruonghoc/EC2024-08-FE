@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="css\search.css">
     <link rel="stylesheet" href="css\catalog.css">
     <link rel="stylesheet" href="css\navigator.css">
+    <link rel="stylesheet" href="css/input.css">
+    <link rel="stylesheet" href="css/deleleButton.css">
+    <link rel="stylesheet" href="css/list.css">
 </head>
 
 <body>
@@ -34,7 +37,7 @@
                     <div class="contact">
                         <div class="icon">
                             <div class="location">
-                                <img src="resources/svg/location.svg"/>
+                                <img src="resources/svg/location.svg" />
                             </div>
                         </div>
                         <div class="context">
@@ -51,12 +54,21 @@
                     </div>
                 </div>
                 <div class="row search">
-                    <div class="bar">
+                    <div class="inputComponent searchBar">
+                        <div class="textList suggestZone"></div>
+                        <input type="text" class="myInput" placeholder="Từ khóa tìm kiếm"
+                            aria-label="SearchText" aria-describedby="addon-wrapping">
+                        <div class="delete inputClear">
+                            <img src="resources/svg/delete.svg">
+                        </div>
+                        
+                    </div>
+                    <div class="searchButton">
                         <div class="icon">
                             <img src="resources/svg/search.svg">
                         </div>
                     </div>
-                    <div class="filter">
+                    <!-- <div class="filter">
                         <div class="item">
                             Bánh quy
                         </div>
@@ -69,7 +81,7 @@
                         <div class="item">
                             Bánh xèo
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row catalog">
                     <div class="type focus">
@@ -134,9 +146,11 @@
                             </svg></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link item selected"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-border-all" viewBox="0 0 16 16">
-                            <path d="M0 0h16v16H0zm1 1v6.5h6.5V1zm7.5 0v6.5H15V1zM15 8.5H8.5V15H15zM7.5 15V8.5H1V15z"/>
-                          </svg></a>
+                        <a class="nav-link item selected"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                fill="currentColor" class="bi bi-border-all" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 0h16v16H0zm1 1v6.5h6.5V1zm7.5 0v6.5H15V1zM15 8.5H8.5V15H15zM7.5 15V8.5H1V15z" />
+                            </svg></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link item"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"

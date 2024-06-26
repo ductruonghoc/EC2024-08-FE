@@ -1,0 +1,7 @@
+.rightBorderButton {
+    width: 71px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    border-right: solid 3px;
+}

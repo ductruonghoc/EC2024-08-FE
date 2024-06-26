@@ -2,7 +2,6 @@ import React from 'react';
 import BranchComponent from '../components/branch';
 import ContactInfo from '../components/contact';
 import '../assets/css/header.css'
-import '../assets/css/default.css'
 
 const Header = ({tag}) => {
     return (

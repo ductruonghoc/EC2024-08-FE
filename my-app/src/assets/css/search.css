@@ -1,24 +1,3 @@
-.search {
-    width: 100%;
-    height: 120px;
-    padding: 34px 103px !important;
-    display: flex;
-    align-items: center;
-    gap: 31px;
-}
-
-.searchButton {
-    width: 71px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    border-right: solid 3px;
-}
-
-.searchButton .icon {
-    cursor: pointer;
-}
-
 .filter {
     display: flex;
     align-items: center;
@@ -33,5 +12,8 @@
     font-size: 35px;
     line-height: 42px;
     color: #000000;
-    cursor: pointer;
+}
+
+.searchBar {
+    width: calc(100% - 71px - 31px) !important;
 }

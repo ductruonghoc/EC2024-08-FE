@@ -17,3 +17,22 @@ svg {
 .hide {
     display: none;
 }
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable img{
+    width: 40px;
+}
+
+.iba-group {
+    width: 100%;
+    height: 120px;
+    padding: 34px 103px !important;
+    display: flex;
+    align-items: center;
+    gap: 31px;
+    flex-wrap: nowrap;
+    overflow: visible;
+}

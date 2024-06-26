@@ -1,24 +1,26 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import FilterList from '../components/filterList';
-import SearchButton from '../components/searchButton';
-import '../../../assets/css/search.css'
-import '../../../assets/css/default.css'
+import BackButton from '../components/backButton';
+import SearchByText from '../components/searchByText';
+import '../assets/css/search.css'
 
-const SearchZone = ({items, handleFilter}) => {
-    const [showFilterList, setShowFilterList] = useState(true)
-    
-    const searchByType = () => {
-        setShowFilterList(false)
-    }
+const SearchZone = ({ items, setCatalog, keyRender, setKeyRender }) => {
+  const [showFilterList, setShowFilterList] = useState(true)
+  const [showSearchBar, setShowSearchBar] = useState(false)
+  const [searchBy, setSearchBy] = useState(() => {
+    setShowFilterList(false)
+    setShowSearchBar(true)
+  })
 
-    return (
-      <div className="row search">
-        {showFilterList && <SearchBar/>}
-        <SearchButton onClick={searchByType}/>
-        <FilterList items={items} onItemClick={handleFilter}/>
-        <BackButton/>
-      </div>
-    );
-  };
-  
-  export default SearchZone;
+  const handleSearch = () => { }
+  return (
+    <div className="row iba-group">
+      <SearchByText showSearchBar={showSearchBar} inputValue={keyRender} setInputValue={setKeyRender}
+        result={handleSearch} search={searchBy}></SearchByText>
+      {showFilterList && <FilterList items={items} onItemClick={setCatalog} />}
+      {false && <BackButton />}
+    </div>
+  );
+};
+
+export default SearchZone;

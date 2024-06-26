@@ -5,9 +5,11 @@
     display: flex;
     align-items: center;
     gap: 31px;
+    flex-wrap: nowrap;
+    overflow: visible;
 }
 
-.bar {
+.searchButton {
     width: 71px;
     height: 52px;
     display: flex;
@@ -15,14 +17,14 @@
     border-right: solid 3px;
 }
 
-.bar .icon {
+.searchButton .icon {
     cursor: pointer;
 }
 
 .filter {
     display: flex;
     align-items: center;
-    overflow-x:auto !important;
+    overflow-x: auto !important;
     gap: 29px;
     width: calc(100% - 31px - 71px);
 }
@@ -34,4 +36,8 @@
     line-height: 42px;
     color: #000000;
     cursor: pointer;
+}
+
+.searchBar {
+    width: calc(100% - 71px - 31px) !important;
 }
