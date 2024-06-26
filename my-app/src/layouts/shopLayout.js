@@ -1,14 +1,14 @@
 // Layout.js
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header } from '../pages/Shop';
+import ShopHeader from '../pages/Shop/components/header';
 
 function Layout() {
     return (
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-11'>
-                    <Header></Header>
+                    <ShopHeader/>
                     <main>
                         <Outlet /> {/* Renders nested components */}
                     </main>

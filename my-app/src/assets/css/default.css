@@ -13,3 +13,7 @@ svg {
 .logo {
     overflow: visible !important;
 }
+
+.hide {
+    display: none;
+}
