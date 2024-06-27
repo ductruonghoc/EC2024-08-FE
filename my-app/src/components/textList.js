@@ -6,8 +6,8 @@ const TextList = ({list}) => {
         <div className="textList">
             {list.forEach((element) => {
                 <span>
-                    <div className="highlight">element["highlight"]</div>
-                    <div>element["text"]</div>
+                    <div className="bold">element["highlight"]</div>
+                    <div>element["normal"]</div>
                 </span>
             })}
         </div>

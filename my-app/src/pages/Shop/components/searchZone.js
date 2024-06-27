@@ -1,8 +1,8 @@
 import React from "react";
 import SearchZone from "../../../containers/searchZone";
 
-const ShopSearchZone = ({items, setCatalog, keyRender, setKeyRender}) => {
-    return <SearchZone items={items} setCatalog={setCatalog} keyRender={keyRender} setKeyRender={setKeyRender} />
+const ShopSearchZone = ({items, inputValue, setInputValue, changeResult, action }) => {
+    return (<SearchZone items={items} inputValue={inputValue} setInputValue={setInputValue} changeResult={changeResult} action={action}/>);
 }
 
 export default ShopSearchZone;

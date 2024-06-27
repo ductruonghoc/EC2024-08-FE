@@ -1,14 +1,14 @@
 import React from "react";
 import TextList from "./textList";
 
-const SuggestText = ({highlight, text}) => {
-    const passin = suggest.map((e) => {
+const SuggestText = ({key, suggest}) => {
+    const list = suggest.map((e) => {
         return {
-            "highlight": highlight,
-            "text": text
+            "highlight": key,
+            "normal": e
         }
     })
-    return (<TextList list={passin}></TextList>)
+    return (<TextList list={list}></TextList>)
 }
 
 export default SuggestText;

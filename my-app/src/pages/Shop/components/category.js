@@ -1,17 +1,22 @@
 import { useState } from "react";
 import React from "react";
-import SearchZone from "../../../containers/searchZone";
+import ShopSearchZone from "./searchZone";
 
 const Category = ({ items }) => {
     const defaultList = null
-    const [pickedList, setPickedList ] = useState(defaultList)
-    const [catalog, setCatalog] = useState(pickedList)
+    const [renderBy, setRenderBy] = useState(defaultList)
+    const CataLogRender = () => {
+        return (
+            <div></div>
+        );
+    }
+    const [catalog, setCatalog] = useState(CataLogRender)
 
-    const itemTypes = items.map((i) => i["type"])
-
-    return <div>
-        <SearchZone items={itemTypes} setCatalog={setCatalog} keyRender={pickedList} setKeyRender={setPickedList}></SearchZone>
+    return (<div>
+        <ShopSearchZone items={items} result={renderBy} setResult={setRenderBy} action={setCatalog(CataLogRender)}></ShopSearchZone>
+        {catalog}
     </div>
+    );
 }
 
 export default Category;
