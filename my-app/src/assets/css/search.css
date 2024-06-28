@@ -16,4 +16,6 @@
 
 .searchBar {
     width: calc(100% - 71px - 31px) !important;
+    overflow: visible;
+    align-self: flex-start;
 }

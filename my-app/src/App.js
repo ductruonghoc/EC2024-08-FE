@@ -8,13 +8,28 @@ import './assets/css/default.css'
 function App() {
   const sampleShopItem = [
     {
-      "type": "Bicostti"
+      "type": "Bicostti",
+      "item":[
+        {
+          "name": "Bicossti Trà Xanh"
+        }
+      ]
     },
     { 
-      "type": "Bánh Quy" 
+      "type": "Bánh Quy" ,
+      "item":[
+        {
+          "name": "Bánh Quy Cacao"
+        }
+      ]
     },
     { 
-      "type": "Bánh dứa" 
+      "type": "Bánh Dứa" ,
+      "item":[
+        {
+          "name": "Bánh Dứa Dừa"
+        }
+      ]
     }
   ]
   return (

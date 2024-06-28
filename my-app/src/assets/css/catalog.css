@@ -1,0 +1,59 @@
+.catalog {
+    height: calc(100vh - 188px - 120px);
+    width: 100%;
+    padding-top: 46px !important;
+    padding-bottom: 46px !important;
+    overflow-y: auto;
+    gap: 87px;
+}
+
+.type {
+    width: 100%;
+    overflow-y: auto;
+    padding: 22px 0 !important;
+}
+
+.catalog .type .title {
+    margin-left: 32px !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    overflow: visible;
+
+    color: #000000;
+}
+
+.catalog .type .list {
+    padding: 23px 117px !important;
+    width: 100%;
+    display: flex;
+    gap: 119px;
+}
+
+.short {
+    overflow-x: auto;
+}
+
+.long {
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.catalog .type .item {
+    /* image 2 */
+    width: 193px;
+    height: 221px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.catalog .type .item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.focus {
+    background: rgba(142, 98, 141, 0.5);
+}

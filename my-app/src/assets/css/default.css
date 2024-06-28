@@ -36,3 +36,7 @@ svg {
     flex-wrap: nowrap;
     overflow: visible;
 }
+
+.visible {
+    overflow: visible;
+}
