@@ -29,6 +29,7 @@
     width: 100%;
     display: flex;
     gap: 119px;
+    position: relative;
 }
 
 .short {
