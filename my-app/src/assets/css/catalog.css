@@ -33,7 +33,21 @@
 }
 
 .short {
-    overflow-x: auto;
+    position: relative;
+    height: 267px;
+    justify-content: space-between;
+}
+
+.short--leftButton {
+    position: absolute;
+    top: 96.5px;
+    left: 32px;
+}
+
+.short--rightButton {
+    position: absolute;
+    top: 96.5px;
+    right: 32px;
 }
 
 .long {
@@ -47,6 +61,7 @@
     height: 221px;
     border-radius: 30px;
     cursor: pointer;
+    position: relative;
 }
 
 .catalog .type .item img {
@@ -57,4 +72,10 @@
 
 .focus {
     background: rgba(142, 98, 141, 0.5);
+}
+
+.twoLayerItem--UpperLayer {
+    position: absolute;
+    top: 0;
+    
 }

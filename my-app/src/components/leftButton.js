@@ -2,9 +2,11 @@ import React from "react";
 import IconButton from "./iconButton";
 import LeftIcon from "../assets/svg/left.svg"
 
-const LeftButton = ({onClick}) => {
+const LeftButton = ({ onClick, className }) => {
     return (
-        <IconButton handleOnClick={onClick} svg={LeftIcon}></IconButton>
+        <div className={className}>
+            <IconButton handleOnClick={onClick} svg={LeftIcon}></IconButton>
+        </div>
     );
 }
 

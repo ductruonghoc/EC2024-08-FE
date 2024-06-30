@@ -6,14 +6,13 @@ const ShopSearchZone = ({items, setRenderKey, action }) => {
         let r = []
 
         items.forEach((element) => {
-            const f = element["item"].filter((i) => i["name"].includes(k))
-            f.forEach((i) => r.push(i))
+            const f = element["item"].filter((i) => i["item"]["name"].includes(k))
+            f.forEach((i) => r.push(i["item"]["name"]))
         });
-        console.log(items)
 
         return r;
     }
-    const i = items.map((j) => j["type"])
+    const i = items.map((j) => j["name"])
     return (<SearchZone items={i} setResult={setRenderKey} action={action} firstAdapt={SearchByName}/>);
 }
 

@@ -5,9 +5,9 @@ const Catalog = ({ items, className="catalog"}) => {
     return (
         <div className={className}>
             {
-                items.map(element => {
+                items.map((element, index) => {
                     return (
-                        <ListWithTitle className="type" title={element["type"]} items={element["item"]}></ListWithTitle>
+                        <ListWithTitle className="type" title={element["name"]} items={element["item"]} key={index}></ListWithTitle>
                     );
                 })
             }
