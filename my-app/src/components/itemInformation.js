@@ -1,5 +1,5 @@
 import React from "react";
-import CartButton from "./cartButton";
+import AddToCartButton from "./add2CartButton";
 
 const ItemInformation = ({ className="itemInformation",itemName, itemPrice, parentUnit, childUnit, childQuantity }) => {
     return (
@@ -7,9 +7,9 @@ const ItemInformation = ({ className="itemInformation",itemName, itemPrice, pare
             <div className="itemInformation--name">{itemName}</div>
             <div className="itemInformation--unit">{parentUnit} {"("}{childQuantity} {childUnit}{")"}</div>
             <div className="itemInformation--price">Giá: {itemPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</div>
-            <CartButton
+            <AddToCartButton
                 onClick={() => { }}
-                className="itemInformation--button"></CartButton>
+                className="itemInformation--button"></AddToCartButton>
         </div>
     )
 }

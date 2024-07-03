@@ -1,8 +1,8 @@
 import React from "react";
 
-const IconButton = ({handleOnClick, svg}) => {
+const IconButton = ({handleOnClick = null, svg}) => {
     return (<div className="clickable" onClick={handleOnClick}>
-        <img src={svg}></img>
+        <img src={svg} alt={"icsvg"}></img>
     </div>)
 }
 

@@ -10,6 +10,11 @@ const SearchByText = ({ showSearchBar = true, setKey, action, searchSide, setOth
     const [suggestDisplay, setSuggestDisplay] = useState(false);
     const [buttonAction, setButtonAction] = useState(() => () => {});
 
+    const HideSearchBar = () => {
+        setOtherMethod.forEach((e) => e(true))
+        return setShowSearchBar(false)
+    }
+
     const TextSearch = (k) => {
         // Char add to input field
         if (k.length > searchKey.length && suggest.length > 0) {
@@ -56,7 +61,7 @@ const SearchByText = ({ showSearchBar = true, setKey, action, searchSide, setOth
         <>
             {showSearchBar && <SearchBar inputValue={searchKey} setInputValue={setSearchKey} handleChange={(e) => TextSearch(e.target.value)} changeResult={suggestDisplay} />}
             <SearchButton onClick={buttonAction()} />
-            {showSearchBar && <BackButton />}
+            {showSearchBar && <BackButton onClick={HideSearchBar} />}
         </>
     );
 }

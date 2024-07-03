@@ -1,0 +1,23 @@
+.myNav {
+    height: 100vh;
+    background: rgba(142, 98, 141, 0.5);
+    padding: 60px 0 !important;
+    gap: 30px;
+}
+
+.myNav .nav-item .item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: black;
+    cursor: pointer;
+    padding: 5px 0 !important;
+}
+
+.selected {
+    background-color: #fff;
+}
+
+.nav--item--active {
+    background-color: #fff;
+}

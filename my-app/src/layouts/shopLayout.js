@@ -3,6 +3,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import ShopHeader from '../pages/Shop/components/header';
 import '../assets/css/layout.css'
+import { ShopNavigator } from '../pages/Shop';
 
 function Layout() {
     return (
@@ -13,6 +14,9 @@ function Layout() {
                     <main className='shopMain'>
                         <Outlet /> {/* Renders nested components */}
                     </main>
+                </div>
+                <div className='col-1'>
+                <ShopNavigator></ShopNavigator>
                 </div>
             </div>
         </div>

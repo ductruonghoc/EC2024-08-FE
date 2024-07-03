@@ -1,13 +1,9 @@
 import React from "react";
-import CartIcon from "../assets/svg/cart.svg"
 import IconButton from "./iconButton";
+import CartIcon from "../assets/svg/cart.svg"
 
-const CartButton = ({ onClick, className}) => {
+const CartButton = ({onClick = null}) => {
     return (
-        <div className={className}>
-            <IconButton handleOnClick={onClick} svg={CartIcon}></IconButton>
-        </div>
-    );
+        <IconButton svg={CartIcon} onClick={onClick}></IconButton>
+    )
 }
-
-export default CartButton;

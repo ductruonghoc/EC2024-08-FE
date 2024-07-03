@@ -10,8 +10,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" exact element={<Layout />}>
-          <Route path="/" exact element={<Category items={sellGroup} />}></Route>
+        <Route path="/Shop" element={<Layout />}>
+          <Route path="/Shop" element={<Category items={sellGroup} />}></Route>
         </Route>
       </Routes>
     </Router>
