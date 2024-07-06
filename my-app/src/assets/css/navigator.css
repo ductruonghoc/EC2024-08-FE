@@ -9,9 +9,12 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    color: black;
+    position: relative;
+    color: inherit;
     cursor: pointer;
     padding: 5px 0 !important;
+    gap: 20px;
+    min-height: 50px;
 }
 
 .selected {
@@ -20,4 +23,20 @@
 
 .nav--item--active {
     background-color: #fff;
+    color: black;
+}
+
+.nav--item--active .navItem--describe{
+    color: black;
+}
+
+.navItem--describe {
+    /* Xử lý đơn hàng */
+    display: flex;
+    font-style: normal;
+    color: inherit;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    max-width: 100px;
 }

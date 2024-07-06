@@ -5,22 +5,22 @@ import ShopHeader from '../pages/Shop/components/header';
 import '../assets/css/layout.css'
 import { ShopNavigator } from '../pages/Shop';
 
-function Layout() {
+const ShopLayout = () => {
     return (
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-11'>
                     <ShopHeader />
                     <main className='shopMain'>
-                        <Outlet /> {/* Renders nested components */}
+                        <Outlet />
                     </main>
                 </div>
                 <div className='col-1'>
-                <ShopNavigator></ShopNavigator>
+                    <ShopNavigator></ShopNavigator>
                 </div>
             </div>
         </div>
     );
 }
 
-export default Layout;
+export default ShopLayout;

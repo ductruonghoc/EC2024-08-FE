@@ -2,4 +2,4 @@ import ShopHeader from "./components/header"; // Import your main component (e.g
 import Category from "./components/category";
 import ShopNavigator from "./components/navigator";
 
-export { ShopHeader, Category, ShopNavigator};
+export { ShopHeader, Category, ShopNavigator };

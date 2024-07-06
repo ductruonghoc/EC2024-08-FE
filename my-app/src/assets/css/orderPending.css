@@ -1,0 +1,10 @@
+.orderPending {
+    width: 900px;
+    height: 681px;
+    background: #E6E6E6;
+    border-radius: 25px;
+}
+
+.orderPending--order {
+    padding: 9px 27px !important;
+}

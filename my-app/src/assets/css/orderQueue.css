@@ -1,0 +1,20 @@
+.orderQueue {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.orderQueue--title {
+    padding: 23px 71px !important;
+}
+
+.orderQueue--line {
+    width: calc(100% - 71px * 2) !important;
+    margin: 0 71px !important;
+}
+
+.orderQueue--orderPending {
+    padding: 23px 0 !important;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+}

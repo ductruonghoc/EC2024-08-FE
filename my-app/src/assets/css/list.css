@@ -11,3 +11,12 @@
     border: 3px solid #C7AFC4;
     padding: 46px 32px !important;
 }
+
+.horizontalList {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: space-between;
+    padding: 23px 0 !important;
+    font-size: 30px;
+}

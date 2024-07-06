@@ -5,4 +5,4 @@ const ShopHeader = () => {
     return <Header tag="Cửa hàng"/>
 };
   
-  export default ShopHeader;
+export default ShopHeader;
