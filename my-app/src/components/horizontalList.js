@@ -8,7 +8,7 @@ const HorizontalList = ({ item, elementStyle }) => {
                 item.map((e, i) => {
                     if (e["type"] === "text")
                         return (
-                            <div className={item["style"]} key={i}>
+                            <div className={e["style"]} key={i}>
                                 {e["describe"]}
                             </div>
                         );

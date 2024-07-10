@@ -1,6 +1,7 @@
 import React from "react";
 
 import HorizontalList from "../components/horizontalList";
+import Line from "../components/line";
 
 import "../assets/css/orderPending.css"
 
@@ -12,30 +13,34 @@ const OrderPending = ({ item = null }) => {
             <></>
         );
 
-    const orderInformation = item["item"].map(e => {
-        const date = e["date"]
-        const targetDate = date.setDate(date.getDate() + 3)
-
+    const orderInformation = (i) => {
+        console.log(i)
+        const date = new Date(i.item["date"].getTime())
+        date.setDate(date.getDate() + 3)
         return [
             {
                 "type": "text",
                 "style": "bold",
-                "describe": `# ${e["id"]}`
+                "describe": `# ${i.item["id"]}`
             },
             {
                 "type": "text",
                 "style": "bold",
-                "describe": `Giao ngày ${DateString(targetDate)})}`
+                "describe": `Giao ngày ${DateString(date)}`
             }
-        ]})
+        ];
+    }
 
     return (
         <div className="orderPending">
             {
-                orderInformation.map(e => (<HorizontalList
+                <HorizontalList
                     elementStyle="orderPending--order"
-                    item={e} />))
+                    item={orderInformation(item)} />
             }
+            <Line
+                elementStyle="orderPending--line"
+                type="blur" />
         </div>
     )
 }

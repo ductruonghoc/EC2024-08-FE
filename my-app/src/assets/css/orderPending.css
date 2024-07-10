@@ -7,4 +7,15 @@
 
 .orderPending--order {
     padding: 9px 27px !important;
+    font-size: 25px;
+}
+
+.orderPending--line {
+    margin: 0 27px !important;
+    width: calc(100% - 54px);
+}
+
+.orderPending--customer {
+    padding: 20px 27px !important;
+    font-size: 25px;
 }
