@@ -3,7 +3,7 @@ import FilterList from '../components/filterList';
 import SearchByText from '../components/searchByText';
 import '../assets/css/search.css'
 
-const SearchZone = ({ items, setResult, action, firstAdapt }) => {
+const SearchZone = ({ items, setResult, action, firstAdapt, poolRemain }) => {
     const [showFilterList, setShowFilterList] = useState(true);
     const [showSearchBar, setShowSearchBar] = useState(false);
 
@@ -15,7 +15,8 @@ const SearchZone = ({ items, setResult, action, firstAdapt }) => {
                 action={action}
                 searchSide={firstAdapt} 
                 setShowSearchBar={setShowSearchBar}
-                setOtherMethod={[setShowFilterList]}/>
+                setOtherMethod={[setShowFilterList]}
+                poolRemain={poolRemain}/>
             {showFilterList && <FilterList items={items} />}
         </div>
     );

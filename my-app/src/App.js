@@ -18,7 +18,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/Shop" element={<ShopLayout />}>
-          <Route path="/Shop" element={<Category items={sellGroup} />}></Route>
+          <Route path="/Shop/:type?" element={<Category items={sellGroup} />}></Route>
         </Route>
         <Route path='/Staff' element={<StaffLayout />}>
           <Route path='/Staff' element={<OrderQueue item={orderQueue}></OrderQueue>}></Route>

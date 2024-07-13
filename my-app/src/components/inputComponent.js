@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import DeleteButton from "./deleteButton";
 import InputField from "./inputField";
-import SuggestText from "./suggestText";
+import SuggestLink from "./suggestLink";
 import "../assets/css/input.css"
 
 const InputComponent = ({ placeholder, ariaLabel, inputValue, setInputValue, handleChange, changeResult }) => {
@@ -11,9 +11,9 @@ const InputComponent = ({ placeholder, ariaLabel, inputValue, setInputValue, han
             <div className="inputClear">
                 <DeleteButton handleOnClick={() => setInputValue('')}></DeleteButton>
             </div>
-            {changeResult != false &&
+            {changeResult !== false &&
                 <div className="suggestZone textList">
-                    <SuggestText list={changeResult}></SuggestText>
+                    <SuggestLink list={changeResult}/>
                 </div>
             }
         </div>

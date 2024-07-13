@@ -26,6 +26,10 @@
     color: black;
 }
 
+.nav--item--active img {
+    filter: invert(0) !important;
+}
+
 .nav--item--active .navItem--describe{
     color: black;
 }

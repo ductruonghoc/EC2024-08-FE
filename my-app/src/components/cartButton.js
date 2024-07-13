@@ -7,3 +7,5 @@ const CartButton = ({onClick = null}) => {
         <IconButton svg={CartIcon} onClick={onClick}></IconButton>
     )
 }
+
+export default CartButton;

@@ -6,7 +6,8 @@ const sellitem = [{
     "quantityOfitem": 20,
     "id": "SBQC",
     "itemID": "BQC0",
-    "item": {}
+    "item": {},
+    "description": "Bánh rất ngon!"
 },
 {
     "price": 60000,
@@ -14,7 +15,8 @@ const sellitem = [{
     "quantityOfitem": 20,
     "id": "SBQB",
     "itemID": "BQB0",
-    "item": {}
+    "item": {},
+    "description": "Bánh rất ngon!"
 },
 {
     "price": 190000,
@@ -22,7 +24,8 @@ const sellitem = [{
     "quantityOfitem": 20,
     "id": "SBQY",
     "itemID": "BQYM",
-    "item": {}
+    "item": {},
+    "description": "Bánh rất ngon!"
 },
 {
     "price": 60000,
@@ -30,7 +33,8 @@ const sellitem = [{
     "quantityOfitem": 20,
     "id": "SBQC",
     "itemID": "BQCD",
-    "item": {}
+    "item": {},
+    "description": "Bánh rất ngon!"
 },
 {
     "price": 110000,
@@ -38,7 +42,8 @@ const sellitem = [{
     "quantityOfitem": 15,
     "id": "SBTX",
     "itemID": "BTX0",
-    "item": {}
+    "item": {},
+    "description": "Bánh rất ngon!"
 },
 {
     "price": 185000,
@@ -46,7 +51,8 @@ const sellitem = [{
     "quantityOfitem": 10,
     "id": "SBDD",
     "itemID": "BDDL",
-    "item": {}
+    "item": {},
+    "description": "Bánh rất ngon!"
 }].map((e) => {
     e["item"] = item.find((el) => el["id"] === e["itemID"])
     return e;

@@ -24,7 +24,6 @@ svg {
 
 .clickable img {
     width: 40px;
-    filter: invert(1);
 }
 
 .iba-group {
@@ -45,6 +44,10 @@ svg {
 .black {
     background-color: black;
     color: white;
+}
+
+.black .clickable img{
+    filter: invert(1);
 }
 
 .cover {
@@ -72,4 +75,13 @@ svg {
 
 .bold{
     font-weight: bold;
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    color:rgb(135 119 135);
+    text-decoration: none;
 }

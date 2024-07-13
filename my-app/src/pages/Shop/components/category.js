@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { useEffect } from "react";
 import React from "react";
+
+import { useParams } from "react-router-dom";
+
 import ShopSearchZone from "./searchZone";
 import ShopCataLog from "./catalog";
 
 const Category = ({ items }) => {
+    const { type } = useParams()
     const defaultList = items
     const [renderBy, setRenderBy] = useState(defaultList)
     const [renderKey,  setRenderKey] = useState("")
@@ -12,7 +15,7 @@ const Category = ({ items }) => {
     return (
         <div>
             <ShopSearchZone items={items} action={setRenderKey} setRenderKey={setRenderKey} />
-            <ShopCataLog items={renderBy}></ShopCataLog>
+            {!type && <ShopCataLog items={renderBy}></ShopCataLog>}
         </div>
     );
 };

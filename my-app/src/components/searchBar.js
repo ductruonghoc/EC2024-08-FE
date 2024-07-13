@@ -5,7 +5,13 @@ import InputComponent from "./inputComponent";
 const SearchBar = ({ inputValue, setInputValue, handleChange, changeResult }) => {
     return (
         <div className="searchBar">
-            <InputComponent placeholder={"Từ khóa tìm kiếm..."} ariaLabel={"SearchText"} inputValue={inputValue} setInputValue={setInputValue} handleChange={handleChange} changeResult={changeResult}></InputComponent>
+            <InputComponent
+                placeholder={"Từ khóa tìm kiếm..."}
+                ariaLabel={"SearchText"}
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+                handleChange={handleChange}
+                changeResult={changeResult}/>
         </div>
     );
 }

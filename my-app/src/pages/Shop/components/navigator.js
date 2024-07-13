@@ -2,7 +2,7 @@ import React from "react";
 import Navigator from "../../../components/navigator";
 import CategoryIcon from "../../../assets/svg/category.svg"
 
-const ShopNavigator = ({className = "nav myNav flex-column"}) => {
+const ShopNavigator = ({ elementStyle = "flex-column", isExpand = false, setExpand = null }) => {
     const item = [
         {
             "path": "/Shop",
@@ -12,7 +12,11 @@ const ShopNavigator = ({className = "nav myNav flex-column"}) => {
         }
     ]
     return (
-        <Navigator className={className} items={item}></Navigator>
+        <Navigator
+            isExpand={isExpand}
+            setExpand={setExpand}
+            className={`nav myNav ${elementStyle}`}
+            items={item}></Navigator>
     );
 }
 

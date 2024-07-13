@@ -1,5 +1,4 @@
 import React from "react";
-import '../assets/css/list.css'
 
 const TextList = ({ list }) => {
     return (

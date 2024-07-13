@@ -1,16 +1,20 @@
 import React from 'react';
+
+import { NavLink } from 'react-router-dom';
+
 import '../assets/css/search.css'
 
-const FilterList = ({ items, onItemClick}) => {
+const FilterList = ({ items}) => {
     return (
       <div className="filter">
         {items.map((item, index) => (
           <div
-            className="item clickable"
+            className="item"
             key={index}
-            onClick={() => onItemClick(item)}
           >
-            {item}
+            <NavLink to={item["path"]}>
+            {item["text"]}
+            </NavLink>
           </div>
         ))}
       </div>
