@@ -12,8 +12,8 @@ const FilterList = ({ items}) => {
             className="item"
             key={index}
           >
-            <NavLink to={item["path"]}>
-            {item["text"]}
+            <NavLink to={item.path}>
+            {item.text}
             </NavLink>
           </div>
         ))}

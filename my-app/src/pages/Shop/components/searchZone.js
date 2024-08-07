@@ -1,27 +1,16 @@
 import React from "react";
 import SearchZone from "../../../containers/searchZone";
+import { TYPEFILTER } from "./category";
 
-const ShopSearchZone = ({ items, setRenderKey, action }) => {
+const ShopSearchZone = ({ setRenderKey, action, type = undefined }) => {
     const SearchByName = (k) => {
-        let r = []
-
-        items.forEach((element) => {
-            const f = element["item"].filter((i) => i["item"]["name"].includes(k))
-            f.forEach((i) => r.push(
-                {
-                    "text": i["item"]["name"],
-                    "path": i["item"]["id"]
-                }))
-        });
-
-        console.log(r)
-
-        return r;
+        return k;
     }
-    const i = items.map((j) => ({
-        "text": j["name"],
-        "path": `/Shop/${j["id"]}`
+    const i = type?.map((j) => ({
+        text: j?.typeName,
+        path: `/Shop/${TYPEFILTER}/${j?.id}`
     }))
+    console.log(i)
     return (<SearchZone items={i} setResult={setRenderKey} action={action} firstAdapt={SearchByName} />);
 }
 

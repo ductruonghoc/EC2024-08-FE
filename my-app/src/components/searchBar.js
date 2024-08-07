@@ -2,7 +2,7 @@ import React from "react";
 import '../assets/css/search.css'
 import InputComponent from "./inputComponent";
 
-const SearchBar = ({ inputValue, setInputValue, handleChange, changeResult }) => {
+const SearchBar = ({ inputValue, setInputValue, handleChange, changeResult = false }) => {
     return (
         <div className="searchBar">
             <InputComponent

@@ -4,7 +4,7 @@ import InputField from "./inputField";
 import SuggestLink from "./suggestLink";
 import "../assets/css/input.css"
 
-const InputComponent = ({ placeholder, ariaLabel, inputValue, setInputValue, handleChange, changeResult }) => {
+const InputComponent = ({ placeholder, ariaLabel, inputValue, setInputValue, handleChange, changeResult = false}) => {
     return (
         <div className="inputComponent">
             <InputField placeholder={placeholder} ariaLabel={ariaLabel} value={inputValue} setValue={setInputValue} handleChange={handleChange}></InputField>

@@ -37,3 +37,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.btn-pink {
+  background-color: #c6b0c6; /* Replace with your desired pink color */
+  border-color: #c6b0c6;
+  color: #fff;
+}

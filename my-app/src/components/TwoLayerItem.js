@@ -3,7 +3,7 @@ import { useState } from "react";
 import ItemInformation from "./itemInformation";
 import "../assets/css/itemInformation.css"
 
-const TwoLayerItem = ({src, itemName, itemPrice, parentUnit, childUnit, childQuantity}) => {
+const TwoLayerItem = ({src, itemName, itemPrice, parentUnit, childUnit, childQuantity, addToCartAction = undefined}) => {
     const [upperLayerShow, setUpperLayerShow] = useState(false)
     return (
         <div className="item" onMouseEnter={() => setUpperLayerShow(true)} onMouseLeave={() => setUpperLayerShow(false)}>
@@ -14,7 +14,8 @@ const TwoLayerItem = ({src, itemName, itemPrice, parentUnit, childUnit, childQua
                 itemPrice={itemPrice}
                 parentUnit={parentUnit}
                 childUnit={childUnit}
-                childQuantity={childQuantity}></ItemInformation>}
+                childQuantity={childQuantity}
+                addToCartAction={addToCartAction}></ItemInformation>}
         </div>
     );
 }

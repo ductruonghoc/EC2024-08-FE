@@ -1,5 +1,5 @@
 import StaffHeader from "./components/header";
 import StaffNavigator from "./components/navigator";
-import OrderQueue from "./components/orderQueue";
+import ReceiptQueue from "./components/receiptQueue";
 
-export { StaffHeader, StaffNavigator, OrderQueue};
+export { StaffHeader, StaffNavigator, ReceiptQueue};
