@@ -5,14 +5,9 @@ import TwoLayerItem from "./TwoLayerItem";
 import LeftButton from "./leftButton";
 import RightButton from "./rightButton";
 
-const ShortListTLI = ({ items, dispatch, addToCartItem }) => {
+const ShortListTLI = ({ items, addToCartAction, itemID }) => {
     const [itemOnView, setItemOnView] = useState(items.slice(0, 3))
     const [selectIndex, setSelectIndex] = useState(0)
-
-    const AddToCart = (item) => {
-        const parameter = {}
-        dispatch(addToCartItem(parameter))
-    }
 
     useEffect(() => {
         setItemOnView(items.slice(selectIndex, selectIndex + 3))
@@ -24,14 +19,16 @@ const ShortListTLI = ({ items, dispatch, addToCartItem }) => {
             {
                 itemOnView.map((element, index) => {
                     return (
-                        <TwoLayerItem 
-                            src={element?.src} 
+                        <TwoLayerItem
+                            addToCartAction={addToCartAction}
+                            src={element?.src}
                             key={index}
                             itemName={element?.itemName}
                             itemPrice={element?.price}
                             parentUnit={element?.unit}
                             childUnit={element?.rootUnit}
-                            childQuantity={element?.quantityOfRoot}></TwoLayerItem>
+                            childQuantity={element?.quantityOfRoot}
+                            itemID={element?.id}></TwoLayerItem>
                     )
                 })
             }

@@ -1,13 +1,15 @@
 import React from "react";
 import ShortListTLI from "../components/ShortListForTLI";
 
-const ListWithTitle = ({title, items, className}) => {
+const ListWithTitle = ({title, items, className, addToCartAction = undefined}) => {
     return (
         <div className={className}>
             <div className="title">
                 {title}
             </div>
-            <ShortListTLI items={items}></ShortListTLI>
+            <ShortListTLI 
+                items={items}
+                addToCartAction={addToCartAction}/>
         </div>
     )
 }

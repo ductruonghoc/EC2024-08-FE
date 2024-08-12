@@ -19,30 +19,30 @@ const LoginForm = () => {
             account: username,
             password: password,
             name: "Đức",
-            role: 2
+            role: 1
         }
         localStorage.setItem('client', JSON.stringify(client))
         dispatch(SetClient(client))
     };
     useEffect(() => {
         const client = JSON.parse(localStorage.getItem('client'))
-        if (client)
-        {
+        if (client) {
             dispatch(SetClient(client))
         }
     }, [dispatch])//Check in the cache
     const client = useSelector(state => state.clientInfo)
 
     useEffect(() => {
-        if(client.role === 3)
-        {
+        if (client.role === 3) {
             navigate("/Shop")
         }
-        else if (client.role === 2)
-        {
+        else if (client.role === 2) {
             navigate("/Staff")
         }
-    },[client, navigate])//Listen to account state change and navigate to its
+        else if (client.role === 1) {
+            navigate("/Manager")
+        }
+    }, [client, navigate])//Listen to account state change and navigate to its
 
     return (
         <div className='col-4'>

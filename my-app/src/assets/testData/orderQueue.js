@@ -1,12 +1,21 @@
 const orderQueue = [
     {
-        id: "DHM4702361",
-        date: "04/07/2024",
+        id: 1,
+        date: "08/07/2024",
         clientId: 1,
-        itemListId: [1, 2],
         address: "333",
-        phone: "012345"
+        phone: "012345",
+        amount: 120000
     }
-]
+];
 
-export default orderQueue;
+const orderItem = [
+    {
+        id: 1,
+        orderId: 1,
+        itemId: 2,
+        quantity: 2
+    }
+];
+
+export { orderQueue, orderItem };

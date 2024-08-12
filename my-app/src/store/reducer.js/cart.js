@@ -6,18 +6,25 @@ const initialState = {
 }
 
 const CartReducer = (state = initialState, action) => {
-    switch (action.type){
+    switch (action.type) {
         case SETCARTITEMS:
             return {
                 ...state,
                 items: action?.payload?.items
             }
         case ADDCARTITEM:
-            state.items.push(action?.payload?.item)
-            return state
+            const addedItems = [...state.items]
+            addedItems.push(action?.payload?.item)
+            return {
+                ...state,
+                items: addedItems
+            }
         case REMOVECARTITEM:
-            state.items.splice(action?.payload?.idx, 1)
-            return state
+            const slicedItem = [...state.items]
+            slicedItem.items.splice(action?.payload?.idx, 1)
+            return { ...state, 
+                items: slicedItem 
+            }
         default:
             return state
     }

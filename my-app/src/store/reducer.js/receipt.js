@@ -7,6 +7,7 @@ const initialState = {
     // address: undefined,
     // phone: undefined,
     // done: false
+    // amount
     item: undefined
 }
 

@@ -5,7 +5,7 @@ import "../../../assets/css/orderQueue.css"
 import { Container, Row } from 'react-bootstrap';
 import Receipt from "../../../components/receipt";
 import { useDispatch, useSelector } from "react-redux";
-import orderQueue from "../../../assets/testData/orderQueue";
+import {orderQueue} from "../../../assets/testData/orderQueue";
 import { SetReceipt } from "../../../store/action/receipt";
 const ReceiptQueue = () => {
     const receipts = useSelector(state => state.receipt?.item)

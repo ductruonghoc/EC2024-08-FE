@@ -10,7 +10,6 @@ const ShopSearchZone = ({ setRenderKey, action, type = undefined }) => {
         text: j?.typeName,
         path: `/Shop/${TYPEFILTER}/${j?.id}`
     }))
-    console.log(i)
     return (<SearchZone items={i} setResult={setRenderKey} action={action} firstAdapt={SearchByName} />);
 }
 

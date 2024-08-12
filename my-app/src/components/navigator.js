@@ -4,10 +4,15 @@ import BackIcon from "../assets/svg/back.svg"
 import IconButton from "./iconButton";
 import NextIcon from "../assets/svg/next.svg"
 import "../assets/css/navigator.css"
+import defaultAvatar from "../assets/img/OIG3.jpg"
 
 const Navigator = ({ className = "nav myNav", items = [], isExpand = false, setExpand = null }) => {
-    const [sizeChangeIcon, setSizeChangeIcon] = useState(BackIcon)
-
+    const [sizeChangeIcon, setSizeChangeIcon] = useState(BackIcon);
+    const avatarIdx = items.findIndex(e => e.type === "avatar");
+    const avatar = avatarIdx !== -1 ? items.splice(items.findIndex(e => e.type === "avatar"), 1)[0] : {
+        src: defaultAvatar,
+        clientName: "Guest",
+    };
     useEffect(() => {
         if (isExpand)
             setSizeChangeIcon(NextIcon)
@@ -16,16 +21,25 @@ const Navigator = ({ className = "nav myNav", items = [], isExpand = false, setE
     }, [isExpand])
 
     return (
-        <ul className={className}>
+        <ul className={`${className} overflow-hidden`}>
             <li className="nav-item">
                 <div className="nav-link item">
-                    <div className={isExpand ? "horizontal-flex-start" : ""}>
+                    <div className={isExpand ? "container-fluid horizontal-flex-start" : ""}>
                         <IconButton
                             svg={sizeChangeIcon}
                             handleOnClick={() => {
-                                console.log(1)
                                 setExpand(!isExpand)
                             }}></IconButton>
+                    </div>
+                </div>
+            </li>
+            <li className="nav-item">
+                <div className="nav-link item container-fluid">
+                    <div className= "container-fluid p-1 d-flex flex-column align-items-center">
+                        <img 
+                        src={avatar.src}
+                        class={`${isExpand ? "col-9": "col-12"} rounded-4 img-thumbnail`} alt="avatar"/>
+                        {isExpand && <p>{avatar.clientName}</p>}
                     </div>
                 </div>
             </li>

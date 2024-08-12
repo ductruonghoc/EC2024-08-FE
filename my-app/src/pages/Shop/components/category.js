@@ -45,7 +45,7 @@ const Category = () => {
             item: item?.filter(i => i.item_type_id === it?.id),
         })) : undefined//Get all item by type
     }
-    console.log(product)//On mouch fetch, dispatch and filter item by method
+    //On mouch fetch, dispatch and filter item by method
     
     return (
         <div>
