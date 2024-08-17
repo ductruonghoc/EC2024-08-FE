@@ -15,8 +15,9 @@ const ReceiptQueue = () => {
     }, [dispatch])
     return (
         <Container>
-            <Row>
-                <div className="d-flex flex-column align-items-center gap-3">
+            <h1>Đơn hàng khách đặt</h1>
+            <Row  className="container-fluid d-flex justify-content-center">
+                <div className="col-11 d-flex flex-column align-items-center gap-3">
                     {receipts?.map(receipt => (
                         <Receipt key={receipt.id} receipt={receipt} />
                     ))}

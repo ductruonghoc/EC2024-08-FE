@@ -5,17 +5,14 @@ const orderQueue = [
         clientId: 1,
         address: "333",
         phone: "012345",
-        amount: 120000
+        amount: 120000,
+        item: [{
+            id: 2,
+            price: 60000,
+            quantity: 2,
+            name: "Bánh Quy Cacao"
+        }],
+        status: "pending"
     }
 ];
-
-const orderItem = [
-    {
-        id: 1,
-        orderId: 1,
-        itemId: 2,
-        quantity: 2
-    }
-];
-
-export { orderQueue, orderItem };
+export { orderQueue };

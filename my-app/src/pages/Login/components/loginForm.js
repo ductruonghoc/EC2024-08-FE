@@ -19,7 +19,7 @@ const LoginForm = () => {
             account: username,
             password: password,
             name: "Đức",
-            role: 1
+            role: 2
         }
         localStorage.setItem('client', JSON.stringify(client))
         dispatch(SetClient(client))

@@ -8,6 +8,7 @@ const ShopCataLog = ({ items }) => {
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart)
     const addToCartAction = (item) => {
+        console.log(cart);
         const parameter = {
             item: {
                 id: item.id,

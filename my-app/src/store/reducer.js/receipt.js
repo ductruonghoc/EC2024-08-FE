@@ -20,7 +20,11 @@ const ReceiptReducer = (state = initialState, action) =>
                 item: action.payload
             });
         case DONERECEIPT:
-            return state.item.filter(i => i.id !== action.payload);
+            const newStateItem = state.item.filter(i => i.id !== action.payload);
+            return {
+                ...state,
+                item: newStateItem
+            };
         case ADDRECEIPT:
             return state.item ? state.item.push(action.payload) : [action.payload];
         default:

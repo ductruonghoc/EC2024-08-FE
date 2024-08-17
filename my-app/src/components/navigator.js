@@ -38,7 +38,7 @@ const Navigator = ({ className = "nav myNav", items = [], isExpand = false, setE
                     <div className= "container-fluid p-1 d-flex flex-column align-items-center">
                         <img 
                         src={avatar.src}
-                        class={`${isExpand ? "col-9": "col-12"} rounded-4 img-thumbnail`} alt="avatar"/>
+                        className={`${isExpand ? "col-9": "col-12"} rounded-4 img-thumbnail`} alt="avatar"/>
                         {isExpand && <p>{avatar.clientName}</p>}
                     </div>
                 </div>

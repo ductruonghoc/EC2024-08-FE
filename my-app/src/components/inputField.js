@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import '../assets/css/input.css';
 
 const InputField = ({ placeholder, ariaLabel, value, setValue, handleChange = (e) => setValue(e.target.value) }) => {
