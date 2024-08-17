@@ -12,9 +12,9 @@ const ShopCataLog = ({ items }) => {
         const parameter = {
             item: {
                 id: item.id,
+                name: item.name,
                 quantity: 1,
-                price: item.price,
-                totalPrice: item.price
+                price: item.price
             }
         }
         dispatch(AddCartItem(parameter))

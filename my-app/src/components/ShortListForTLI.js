@@ -5,7 +5,7 @@ import TwoLayerItem from "./TwoLayerItem";
 import LeftButton from "./leftButton";
 import RightButton from "./rightButton";
 
-const ShortListTLI = ({ items, addToCartAction, itemID }) => {
+const ShortListTLI = ({ items, addToCartAction }) => {
     const [itemOnView, setItemOnView] = useState(items.slice(0, 3))
     const [selectIndex, setSelectIndex] = useState(0)
 

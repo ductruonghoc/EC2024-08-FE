@@ -6,8 +6,9 @@ const ItemInformation = ({ className="itemInformation",itemID = 0, itemName, ite
         id: itemID,
         quantity: 1,
         price: itemPrice,
-        totalPrice: itemPrice
+        name: itemName
     }
+    console.log(itemName)
     return (
         <div className={className}>
             <div className="itemInformation--name">{itemName}</div>

@@ -20,11 +20,11 @@ const CartReducer = (state = initialState, action) => {
                 items: addedItems
             }
         case REMOVECARTITEM:
-            const slicedItem = [...state.items]
-            slicedItem.items.splice(action?.payload?.idx, 1)
-            return { ...state, 
-                items: slicedItem 
-            }
+            const newStateItem = state.items.filter(i => i.id !== action.payload);
+            return {
+                ...state,
+                items: newStateItem
+            };
         default:
             return state
     }

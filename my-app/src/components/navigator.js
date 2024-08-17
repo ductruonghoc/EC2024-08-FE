@@ -13,6 +13,8 @@ const Navigator = ({ className = "nav myNav", items = [], isExpand = false, setE
         src: defaultAvatar,
         clientName: "Guest",
     };
+    const offCanvas = items.filter(i => i.type === "offCanvas");
+    console.log(offCanvas)
     useEffect(() => {
         if (isExpand)
             setSizeChangeIcon(NextIcon)
@@ -35,14 +37,27 @@ const Navigator = ({ className = "nav myNav", items = [], isExpand = false, setE
             </li>
             <li className="nav-item">
                 <div className="nav-link item container-fluid">
-                    <div className= "container-fluid p-1 d-flex flex-column align-items-center">
-                        <img 
-                        src={avatar.src}
-                        className={`${isExpand ? "col-9": "col-12"} rounded-4 img-thumbnail`} alt="avatar"/>
+                    <div className="container-fluid p-1 d-flex flex-column align-items-center">
+                        <img
+                            src={avatar.src}
+                            className={`${isExpand ? "col-9" : "col-12"} rounded-4 img-thumbnail`} alt="avatar" />
                         {isExpand && <p>{avatar.clientName}</p>}
                     </div>
                 </div>
             </li>
+            {
+                offCanvas.length > 0 ?
+                offCanvas.map((i, idx) => (
+                    <li className="nav-item" key={idx}>
+                        <div
+                            className="nav-link item"
+                            onClick={i["action"]}>
+                            <IconButton svg={i["icon"]}></IconButton> {isExpand && <div className="navItem--describe">{i["describe"]}</div>}
+                        </div>
+                    </li>
+                )) :
+                <></>
+            }
             {
                 items.map((e, i) => (
                     <li className="nav-item" key={i}>
