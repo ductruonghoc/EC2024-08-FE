@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { useParams } from "react-router-dom";
-import { itemTest, typeTest } from "../../../assets/testData/newItemForTest";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { SetItem, SetType } from "../../../store/action/product";
+import { SetItem } from "../../../store/action/product";
 
+import fetching from "../../../services/api/fetch";
 import ShopSearchZone from "./searchZone";
 import ShopCataLog from "./catalog";
 
@@ -13,39 +13,71 @@ export const SEARCH = 0;
 export const TYPEFILTER = 1;
 
 const Category = () => {
-    const {method, key} = useParams()
-    const setRenderKey = () => {}
+    const { method, key } = useParams();
+    const setRenderKey = () => { };
     const dispatch = useDispatch();
-    const item = useSelector(state => state.product?.item)
-    const type = useSelector(state => state.product?.type)
-    let product = undefined
-    dispatch(SetItem({item: itemTest}))
-    dispatch(SetType({type: typeTest}))
-    if (method && key)
-    {
-        if(Number(method) === TYPEFILTER)
-        {
-            product = (type && item) ? [{
-                group: type?.find(i => i?.id === Number(key))?.typeName,
-                item: item?.filter(i => i.item_type_id === Number(key))
-            }] : undefined//Filter by item and key type name
+    const item = useSelector(state => state.product?.item);
+    const [type, setType] = useState([]);
+    const [product, SetProduct] = useState(undefined);
+
+    const GetProduct = useCallback(() => {
+        if (method && key) {
+            if (Number(method) === TYPEFILTER) {
+                SetProduct([{
+                    group: key,
+                    item: item[key]
+                }])//Filter by item and key type name
+            }
+            else if (Number(method) === SEARCH) {
+                const prevItem = [];
+                for (const i in item) {
+                    const addItem = item[i].filter(it => it.name.includes(key)); //Added item filter by search key
+                    prevItem.push(...addItem);
+                }
+                SetProduct([{
+                    group: "Kết quả",
+                    item: prevItem
+                }])//filter by item name include key
+            }
         }
-        else if(Number(method) === SEARCH)
-        {
-            product = (type && item) ? [{
-                group: "Kết quả",
-                item: item?.filter(i => i?.itemName?.includes(key))
-            }] : undefined//filter by item name include key
+        else {
+            const prevProduct = [];
+            for (const i in item) {
+                prevProduct.push(
+                    {
+                        group: i,
+                        item: item[i]
+                    }
+                )
+            }
+            SetProduct(prevProduct);
         }
-    }
-    else
-    {
-        product = (type && item) ? type?.map(it => ({
-            group: it?.typeName,
-            item: item?.filter(i => i.item_type_id === it?.id),
-        })) : undefined//Get all item by type
-    }
-    //On mouch fetch, dispatch and filter item by method
+    }, [SetProduct, item, key, method])
+
+    const GetType = useCallback(() => {
+        const prevType = [];
+        for(const i in item)
+        {
+            prevType.push(i);
+        }
+        setType(prevType);
+    }, [item])
+
+    useEffect(() => {
+        fetching("http://localhost:3001/api/products/group-by-type", "POST").then(
+            result => {
+                for(const i in result)
+                {
+                    result[i].forEach(element => {
+                        element.price = element.price * 1000;
+                    });
+                }
+                dispatch(SetItem(result));
+            });
+            GetProduct();
+            GetType();        
+    }, [dispatch, GetProduct, GetType]); //Fetch on mount
+    
     
     return (
         <div>

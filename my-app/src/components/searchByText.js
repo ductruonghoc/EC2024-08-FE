@@ -5,10 +5,10 @@ import SearchButton from "./searchButton";
 import BackButton from '../components/backButton';
 import { useNavigate } from "react-router-dom";
 
-const SearchByText = ({ showSearchBar = true, action, setOtherMethod = [], setShowSearchBar}) => {
-    const [searchKey, setSearchKey] = useState('')
-    const [buttonAction, setButtonAction] = useState(() => () => { })
-    const navigate = useNavigate()
+const SearchByText = ({ showSearchBar = true, setOtherMethod = [], setShowSearchBar }) => {
+    const [searchKey, setSearchKey] = useState('');
+    const [buttonAction, setButtonAction] = useState(() => () => { });
+    const navigate = useNavigate();
     const HideSearchBar = () => {
         setOtherMethod.forEach((e) => e(true))
         return setShowSearchBar(false)
@@ -35,7 +35,7 @@ const SearchByText = ({ showSearchBar = true, action, setOtherMethod = [], setSh
         else {
             setButtonAction(() => () => DisplaySearchBar)
         };
-    }, [showSearchBar, setOtherMethod,searchKey, setShowSearchBar, navigate]);
+    }, [showSearchBar, setOtherMethod, searchKey, setShowSearchBar, navigate]);
     //Handle Suggest Display
 
     return (
@@ -44,7 +44,10 @@ const SearchByText = ({ showSearchBar = true, action, setOtherMethod = [], setSh
                 <SearchBar
                     inputValue={searchKey}
                     setInputValue={setSearchKey}
-                    handleChange={(e) => TextSearch(e.target.value)} />}
+                    handleChange={(e) => TextSearch(e.target.value)}
+                    enterAction={() => navigate(`/Shop/0/${searchKey}` 
+                                    && setSearchKey("")
+                    )} />}
             <SearchButton onClick={buttonAction()} />
             {showSearchBar &&
                 <BackButton

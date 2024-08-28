@@ -18,7 +18,7 @@
 //     id: undefined,
 //     typeName: undefined
 
-import { SETPRODUCT, SETITEM, SETTYPE } from "../action/product";
+import {SETITEM} from "../action/product";
 
 const initialState = {
     item: undefined,
@@ -27,21 +27,10 @@ const initialState = {
 
 const ProductReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SETPRODUCT:
-            return {
-                ...state,
-                item: action.payload?.item,
-                type: action.payload?.type,
-            };
         case SETITEM:
             return {
                 ...state,
-                item: action.payload?.item
-            }
-        case SETTYPE:
-            return {
-                ...state,
-                type: action.payload?.type
+                item: action.payload
             }
         default:
             return state;

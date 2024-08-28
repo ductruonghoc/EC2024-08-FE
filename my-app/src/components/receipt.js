@@ -25,10 +25,10 @@ const Receipt = ({ receipt }) => {
                     <Card.Title>Giao ngày: {receipt.date}</Card.Title>
                     <Card.Text>Ngày: {receipt.date}</Card.Text>
                     <Card.Text className='row'>
-                        <p className='h6 col-8'>Tổng cộng: </p>
-                        <p className='h6 col-2'>
+                        <span className='h6 col-8'>Tổng cộng: </span>
+                        <span className='h6 col-2'>
                             {receipt.amount.toLocaleString('en-EN')} VND
-                        </p>
+                        </span>
                     </Card.Text>
                     <ListGroup>
                         <ListGroup.Item>

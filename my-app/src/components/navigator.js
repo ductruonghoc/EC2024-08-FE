@@ -14,7 +14,6 @@ const Navigator = ({ className = "nav myNav", items = [], isExpand = false, setE
         clientName: "Guest",
     };
     const offCanvas = items.filter(i => i.type === "offCanvas");
-    console.log(offCanvas)
     useEffect(() => {
         if (isExpand)
             setSizeChangeIcon(NextIcon)

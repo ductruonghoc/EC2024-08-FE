@@ -78,11 +78,10 @@
 }
 
 .focus {
-    background: rgba(142, 98, 141, 0.5);
+    background: white;
 }
 
 .twoLayerItem--UpperLayer {
     position: absolute;
-    top: 0;
-
+    bottom: 0;
 }

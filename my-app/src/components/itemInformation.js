@@ -8,7 +8,6 @@ const ItemInformation = ({ className="itemInformation",itemID = 0, itemName, ite
         price: itemPrice,
         name: itemName
     }
-    console.log(itemName)
     return (
         <div className={className}>
             <div className="itemInformation--name">{itemName}</div>

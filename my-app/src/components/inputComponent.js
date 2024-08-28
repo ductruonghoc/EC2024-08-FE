@@ -4,10 +4,10 @@ import InputField from "./inputField";
 import SuggestLink from "./suggestLink";
 import "../assets/css/input.css"
 
-const InputComponent = ({ placeholder, ariaLabel, inputValue, setInputValue, handleChange, changeResult = false}) => {
+const InputComponent = ({ placeholder, ariaLabel, inputValue, setInputValue, handleChange, enterAction, changeResult = false}) => {
     return (
         <div className="inputComponent">
-            <InputField placeholder={placeholder} ariaLabel={ariaLabel} value={inputValue} setValue={setInputValue} handleChange={handleChange}></InputField>
+            <InputField placeholder={placeholder} ariaLabel={ariaLabel} value={inputValue} setValue={setInputValue} handleChange={handleChange} enterAction={enterAction}></InputField>
             <div className="inputClear">
                 <DeleteButton handleOnClick={() => setInputValue('')}></DeleteButton>
             </div>

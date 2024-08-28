@@ -4,9 +4,11 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import { useDispatch } from 'react-redux';
 import { RemoveCartItem } from '../../../store/action/cart';
+import { useNavigate } from 'react-router-dom';
 const Cart = ({ cartItems, handleClose, show }) => {
   const dispatch = useDispatch();
   const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const navigate = useNavigate();
 
   return (
     <Offcanvas show={show} onHide={handleClose} placement='end'>
@@ -43,7 +45,7 @@ const Cart = ({ cartItems, handleClose, show }) => {
                 <Button
                   className='col-1 h-25 m-0 p-0 d-flex justify-content-center align-items-center'
                   variant='danger'
-                  onClick={() => (dispatch(RemoveCartItem(item.id)))}>X</Button>
+                  onClick={() => (dispatch(RemoveCartItem(item.cartId)))}>X</Button>
               </div>
             </ListGroup.Item>
           ))
@@ -51,7 +53,7 @@ const Cart = ({ cartItems, handleClose, show }) => {
         </ListGroup>
         <h4>Tổng cộng: {total.toLocaleString('en-EN')} VND</h4>
         <div className='row justify-content-center'>
-          <Button variant="dark">Đặt hàng</Button>
+          <Button variant="dark" onClick={() => navigate("/Shop/Placeorder")}>Đặt hàng</Button>
         </div>
       </Offcanvas.Body>
 
