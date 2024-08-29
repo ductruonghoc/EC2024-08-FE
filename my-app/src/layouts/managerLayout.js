@@ -29,7 +29,7 @@ const ManagerLayout = () => {
     }, [dispatch]) //Read cache once load to determine display component
 
     return (<div className="container-fluid" >
-        {client.role === 1 &&
+        {client.role === "admin" &&
             <div className='row'>
                 <div className={`${columnStyle[0]} p-0`}>
                     <ManagerHeader/>

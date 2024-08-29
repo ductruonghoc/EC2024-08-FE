@@ -64,7 +64,7 @@ const Category = () => {
     }, [item])
 
     useEffect(() => {
-        fetching("http://localhost:3001/api/products/group-by-type", "POST").then(
+        fetching("http://localhost:3001/api/products/group-by-type", {method: "POST"}).then(
             result => {
                 for(const i in result)
                 {
