@@ -41,7 +41,7 @@
 .short {
     position: relative;
     height: 267px;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .short--leftButton {

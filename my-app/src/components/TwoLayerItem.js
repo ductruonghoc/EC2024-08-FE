@@ -15,9 +15,9 @@ const TwoLayerItem = memo(function TwoLayerItem({ src, itemName, itemPrice, addT
                 <div className="row m-0 h-100">
                     <div className="col-9 pt-0 mt-0 h-100 pb-1">
                         <div className="h-75 overflow-hidden pt-1">
-                            <strong>{itemName}</strong>
+                            <strong>{itemName?.split(" ", 2).join(" ")}</strong>
                         </div>
-                        <p className="fs-6 m-0">{itemPrice}</p>
+                        <p className="fs-6 m-0">{itemPrice?.toLocaleString()}</p>
                     </div>
                     <div className="col-1 w-25 m-0 p-0  d-flex align-items-center">
                         <AddToCartButton

@@ -8,7 +8,7 @@ const TwoLayerItem = lazy(() => import("./TwoLayerItem.js"))
 
 const sampleImgSrc = "https://img.freepik.com/free-vector/chocolate-cookies-biscuit-cartoon-vector-icon-illustration-food-object-icon-isolated-flat_138676-13050.jpg?t=st=1724835529~exp=1724839129~hmac=69737c2ceb024f00f19498f07966d8401f1ae7b71dd87d81f4895e0217d985c0&w=740";
 
-const ShortListTLI = memo(function({ items, addToCartAction }){
+const ShortListTLI = memo(({ items, addToCartAction }) => {
     const [itemOnView, setItemOnView] = useState(items.slice(0, 3))
     const [selectIndex, setSelectIndex] = useState(0)
 

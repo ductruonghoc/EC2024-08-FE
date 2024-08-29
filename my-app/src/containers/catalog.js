@@ -4,7 +4,7 @@ const Catalog = ({ items, className = "catalog", addToCartAction }) => {
     return (
         <div className={className}>
             {
-                items?.map((element, index) => {
+                items?.slice(0,5).map((element, index) => {
                     return (
                         <ListWithTitle
                             addToCartAction={addToCartAction}

@@ -8,11 +8,7 @@ import defaultAvatar from "../assets/img/OIG3.jpg"
 
 const Navigator = ({ className = "nav myNav", items = [], isExpand = false, setExpand = null }) => {
     const [sizeChangeIcon, setSizeChangeIcon] = useState(BackIcon);
-    const avatarIdx = items.findIndex(e => e.type === "avatar");
-    const avatar = avatarIdx !== -1 ? items.splice(items.findIndex(e => e.type === "avatar"), 1)[0] : {
-        src: defaultAvatar,
-        clientName: "Guest",
-    };
+    const account = items.filter(e => e.type === "account")?.[0] 
     const offCanvas = items.filter(i => i.type === "offCanvas");
     useEffect(() => {
         if (isExpand)
@@ -38,9 +34,9 @@ const Navigator = ({ className = "nav myNav", items = [], isExpand = false, setE
                 <div className="nav-link item container-fluid">
                     <div className="container-fluid p-1 d-flex flex-column align-items-center">
                         <img
-                            src={avatar.src}
-                            className={`${isExpand ? "col-9" : "col-12"} rounded-4 img-thumbnail`} alt="avatar" />
-                        {isExpand && <p>{avatar.clientName}</p>}
+                            src={account?.src ? account?.src : defaultAvatar}
+                            className={`${isExpand ? "col-9" : "col-12"} rounded-4 img-thumbnail`} alt="account" />
+                        {isExpand && <p>{account?.name ? account?.name : "Guest"}</p>}
                     </div>
                 </div>
             </li>

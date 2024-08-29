@@ -8,7 +8,7 @@ const LoginLayout = () => {
         <div className="position-absolute top-0 end-0 p-5 z-1">
             <button 
                 className='btn btn-link btn-lg'
-                style={{color: "#8702b0"}}
+                style={{color: "#371f76"}}
                 onClick={() => navigate("Shop")}>
                 Tiếp tục mua sắm {`>`}
             </button>
