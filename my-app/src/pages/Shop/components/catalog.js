@@ -1,12 +1,11 @@
 import React from "react";
 import Catalog from "../../../containers/catalog";
 import '../../../assets/css/catalog.css'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AddCartItem } from "../../../store/action/cart";
 
 const ShopCataLog = ({ items }) => {
     const dispatch = useDispatch()
-    const cart = useSelector(state => state.cart)
     const addToCartAction = (item) => {
         const parameter = {
             item: {

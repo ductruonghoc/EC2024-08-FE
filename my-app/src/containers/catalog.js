@@ -1,6 +1,5 @@
-import React from "react";
-import ListWithTitle from "./ListWithTitle";
-
+import React, {lazy} from "react";
+const ListWithTitle = lazy(() => import('./ListWithTitle.js'))
 const Catalog = ({ items, className = "catalog", addToCartAction }) => {
     return (
         <div className={className}>

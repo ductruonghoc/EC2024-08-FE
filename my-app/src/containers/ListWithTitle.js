@@ -1,7 +1,8 @@
+import { memo } from "react";
 import React from "react";
 import ShortListTLI from "../components/ShortListForTLI";
 
-const ListWithTitle = ({title, items, className, addToCartAction = undefined}) => {
+const ListWithTitle = memo(function({title, items, className, addToCartAction = undefined}) {
     return (
         <div className={className}>
             <div className="title">
@@ -12,6 +13,6 @@ const ListWithTitle = ({title, items, className, addToCartAction = undefined}) =
                 addToCartAction={addToCartAction}/>
         </div>
     )
-}
+});
 
 export default ListWithTitle;

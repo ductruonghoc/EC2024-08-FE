@@ -1,8 +1,7 @@
-import React from "react";
-import ItemInformation from "./itemInformation";
+import React, { memo } from "react";
 import "../assets/css/itemInformation.css";
 import AddToCartButton from "./add2CartButton";
-const TwoLayerItem = ({ src, itemName, itemPrice, parentUnit, childUnit, childQuantity, addToCartAction = undefined, itemID = 0 }) => {
+const TwoLayerItem = memo(function TwoLayerItem({ src, itemName, itemPrice, addToCartAction = undefined, itemID = 0 }) {
     const cartItem = {
         id: itemID,
         quantity: 1,
@@ -12,15 +11,6 @@ const TwoLayerItem = ({ src, itemName, itemPrice, parentUnit, childUnit, childQu
     return (
         <div className="item">
             <img src={src} loading="lazy" alt={itemName}></img>
-            {false && <ItemInformation
-                className="itemInformation twoLayerItem--UpperLayer"
-                itemName={itemName}
-                itemPrice={itemPrice}
-                parentUnit={parentUnit}
-                childUnit={childUnit}
-                childQuantity={childQuantity}
-                addToCartAction={addToCartAction}
-                itemID={itemID}></ItemInformation>}
             <div className="itemInformation twoLayerItem--UpperLayer pt-0 mt-0">
                 <div className="row m-0 h-100">
                     <div className="col-9 pt-0 mt-0 h-100 pb-1">
@@ -33,13 +23,13 @@ const TwoLayerItem = ({ src, itemName, itemPrice, parentUnit, childUnit, childQu
                         <AddToCartButton
                             onClick={() => addToCartAction(cartItem)}
                             className="w-100 btn btn-light p-1 m-0"
-                            >
+                        >
                         </AddToCartButton>
                     </div>
                 </div>
             </div>
         </div>
     );
-}
+});
 
 export default TwoLayerItem;
