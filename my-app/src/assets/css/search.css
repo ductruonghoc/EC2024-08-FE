@@ -1,0 +1,21 @@
+.filter {
+    display: flex;
+    align-items: center;
+    overflow-x:auto !important;
+    gap: 29px;
+    width: calc(100% - 31px - 71px);
+}
+
+.filter .item {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 42px;
+    color: #000000;
+}
+
+.searchBar {
+    width: calc(100% - 71px - 31px) !important;
+    overflow: visible;
+    align-self: flex-start;
+}

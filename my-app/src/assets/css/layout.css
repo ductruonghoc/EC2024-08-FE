@@ -1,0 +1,8 @@
+.shopMain {
+    height: calc(100vh - 188px);
+}
+
+.staffMain {
+    height: calc(100vh - 188px);
+    overflow-y: auto;
+}

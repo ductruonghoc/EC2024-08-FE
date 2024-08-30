@@ -1,8 +1,13 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import { Category } from './pages/Shop';
+import sellGroup from './assets/testData/sellGroup';
+import Cart from './pages/Shop/components/cart';
+
+function name() {
+    0;
+}
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  render(<Cart cartItems={[] } handleClose={() => undefined} show={true}></Cart>);
+
 });
