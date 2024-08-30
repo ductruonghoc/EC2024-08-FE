@@ -115,7 +115,7 @@ const LoginForm = () => {
                 </Form.Group>
 
                 <Button variant="primary" className="btn btn-pink btn-lg p-2 shadow-none" type="submit">
-                    Submit
+                    Đăng nhập
                 </Button>
             </Form>
         </div>

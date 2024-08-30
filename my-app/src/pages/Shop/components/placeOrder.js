@@ -32,10 +32,9 @@ const PlaceOrderComponent = () => {
                             <Form.Control type="tel" placeholder="Nhập số điện thoại" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Phương thức đặt hàng: </Form.Label>
-                            <Form.Label>COD</Form.Label>
+                            <Form.Label>Phương thức đặt hàng: COD</Form.Label>
                         </Form.Group>
-                        <Button variant="dark" onClick={handlePlaceOrder}>Place Order</Button>
+                        <Button variant="dark" onClick={handlePlaceOrder}>Đặt hàng</Button>
                     </Form>
                 </Col>
                 <Col md={4}>
@@ -75,7 +74,7 @@ const PlaceOrderComponent = () => {
                         ))
                         }
                     </ListGroup>
-                    <p>Total Price: {totalPrice}</p>
+                    <p>Tổng giá: {totalPrice.toLocaleString()}</p>
                     
                 </Col>
             </Row>

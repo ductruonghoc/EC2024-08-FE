@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Col, Card, Form, ListGroup } from 'react-bootstrap';
 import { DoneReceipt } from '../store/action/receipt';
 import { useDispatch } from 'react-redux';
-const Receipt = ({ receipt }) => {
+const Receipt = memo(({ receipt }) => {
     const dispatch = useDispatch();
     const Done = () => {
         //Set status to done -> update in be then remove from reducer
@@ -16,7 +16,7 @@ const Receipt = ({ receipt }) => {
                         Đơn hàng#{receipt.id}
                         <Form.Check // prettier-ignore
                             type='checkbox'
-                            label='Done'
+                            label='Đánh dấu đã xong'
                             onChange={Done}
                         />
                     </div>
@@ -73,6 +73,6 @@ const Receipt = ({ receipt }) => {
             </Card>
         </Col>
     );
-};
+});
 
 export default Receipt;

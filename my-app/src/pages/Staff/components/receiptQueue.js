@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
-
+import React, { useEffect, lazy } from "react";
 import "../../../assets/css/orderQueue.css"
-
 import { Container, Row } from 'react-bootstrap';
-import Receipt from "../../../components/receipt";
 import { useDispatch, useSelector } from "react-redux";
 import {orderQueue} from "../../../assets/testData/orderQueue";
 import { SetReceipt } from "../../../store/action/receipt";
+
+const Receipt = lazy(()=>import("../../../components/receipt.js"));
 const ReceiptQueue = () => {
     const receipts = useSelector(state => state.receipt?.item)
     const dispatch = useDispatch()

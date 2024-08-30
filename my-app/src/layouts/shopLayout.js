@@ -16,7 +16,7 @@ const ShopLayout = () => {
     }, [navExpand]);
 
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid overflow-x-hidden'>
             <div className='row'>
                 <div className={columnStyle[0]}>
                     <ShopHeader />
