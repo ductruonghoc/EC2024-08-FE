@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { SetItem } from "../../../store/action/product";
 
-import fetching from "../../../services/api/fetch";
+import fetching from "../../../services/api/fetchBEHost";
 import ShopSearchZone from "./searchZone";
 import ShopCataLog from "./catalog";
 
@@ -64,7 +64,7 @@ const Category = () => {
     }, [item])
 
     useEffect(() => {
-        fetching("http://localhost:3001/api/products/group-by-type", {method: "POST"}).then(
+        fetching("api/products/group-by-type", {method: "POST"}).then(
             result => {
                 for(const i in result)
                 {

@@ -1,6 +1,7 @@
 import { SETRECEIPT, ADDRECEIPT, DONERECEIPT } from "../action/receipt";
 const initialState = {
-    // Item is this id: undefined,
+    // Item is 
+    //this id: undefined,
     // clientId: undefined,
     // receiptDate: undefined,
     // itemListId: undefined,
@@ -26,7 +27,11 @@ const ReceiptReducer = (state = initialState, action) =>
                 item: newStateItem
             };
         case ADDRECEIPT:
-            return state.item ? state.item.push(action.payload) : [action.payload];
+            const items = state.item;
+            return {
+                ...state,
+                item: [...items, ...action.payload]
+            };
         default:
             return state    
         }
