@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import "../../../assets/css/button.css";
 import { SetClient } from '../../../store/action/client_info';
 import { useNavigate } from 'react-router-dom';
-import fetching from '../../../services/api/fetch';
+import fetching from '../../../services/api/fetchBEHost';
 
 
 const LoginForm = () => {
@@ -36,7 +36,7 @@ const LoginForm = () => {
             body: JSON.stringify(client)
         };
         fetching(
-            "http://localhost:3001/api/user/login",
+            "api/user/login",
             option
         ).then(result => setToken(result.token)) //Set receving token
             .catch(error => {
@@ -55,7 +55,7 @@ const LoginForm = () => {
             }, //tell the object content form
         };
         fetching(
-            "http://localhost:3001/api/user/profile",
+            "api/user/profile",
             option
         ).then(result =>
             dispatch(SetClient(result)) &&
