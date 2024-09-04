@@ -2,11 +2,20 @@ import React, { memo } from 'react';
 import { Col, Card, Form, ListGroup } from 'react-bootstrap';
 import { DoneReceipt } from '../store/action/receipt';
 import { useDispatch } from 'react-redux';
+import fetching from '../services';
 const Receipt = memo(({ receipt }) => {
     const dispatch = useDispatch();
     const Done = () => {
         //Set status to done -> update in be then remove from reducer
         dispatch(DoneReceipt(receipt.id));
+        const fetchOption = {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({status: 'completed'})
+        };
+        fetching(`api/orders/update-status/${receipt.id}`, fetchOption).catch();
     }
     return (
         <Col md={12}>
@@ -22,7 +31,7 @@ const Receipt = memo(({ receipt }) => {
                     </div>
                 </Card.Header>
                 <Card.Body>
-                    <Card.Title>Giao ngày: {receipt.date}</Card.Title>
+                    <Card.Title>Giao ngày: {receipt.shipDate}</Card.Title>
                     <Card.Text>Ngày: {receipt.date}</Card.Text>
                     <Card.Text className='row'>
                         <span className='h6 col-8'>Tổng cộng: </span>
@@ -50,7 +59,7 @@ const Receipt = memo(({ receipt }) => {
                                 </h6>
                             </div>
                         </ListGroup.Item>
-                        {receipt.item.map((i, idx) => {
+                        {receipt.items.map((i, idx) => {
                             return (<ListGroup.Item key={idx}>
                                 <div className='row'>
                                     <p className='col-4 fs-6'>

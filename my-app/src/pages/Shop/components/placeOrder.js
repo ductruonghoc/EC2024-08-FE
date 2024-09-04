@@ -3,7 +3,8 @@ import { Container, Row, Col, Form, Button, ListGroup, Modal, Spinner } from 're
 import { useSelector, useDispatch } from 'react-redux';
 import { RemoveCartItem } from '../../../store/action/cart';
 import "../../../assets/css/animation.css"
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import fetching from '../../../services';
 
 const PlaceOrderComponent = () => {
     const [address, setAddress] = useState('');
@@ -21,6 +22,7 @@ const PlaceOrderComponent = () => {
     const [countDown, setCountdown] = useState(5);
     const [navigateSchedule, setNavigateShedule] = useState(false);
     const navigate = useNavigate();
+    const client = useSelector(state => state.clientInfo);
     //const [order, setOrder] = useState({
     //     username: undefined,
     //     phoneNumber: undefined,
@@ -28,8 +30,7 @@ const PlaceOrderComponent = () => {
     //     items: undefined
     // });
     const ClearTimeOut = useCallback(() => {
-        console.log(1);
-        clearInterval(timeOutNavigate);
+        clearTimeout(timeOutNavigate);
         clearTimeout(timeOutCountDown);
     }, [timeOutNavigate, timeOutCountDown])
     useEffect(() => {
@@ -44,7 +45,22 @@ const PlaceOrderComponent = () => {
     }
     const HandlePlaceOrder = () => {
         //State saving local
-        SetModalShow(true);
+        const msgBody = {
+            items: cart.items
+        }
+        const option = {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${client?.token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(msgBody)
+        }
+        fetching("api/orders/add-orders", option).then(() => {
+            CountDown(countDown);
+            setNavigateShedule(true);
+            setTimeOutNavigate(setTimeout(() => ClearTimeOut() || navigate("/Shop"), 5001));
+        }).catch(error => console.log(error));
     };
 
     // useEffect(() => {
@@ -64,6 +80,14 @@ const PlaceOrderComponent = () => {
             <Container>
                 <Row>
                     <Col md={6}>
+                        {
+                            client?.token === undefined &&
+                            <div className='text-bg-warning p-3'>
+                                Xin hãy đăng nhập để đặt hàng.
+                                <NavLink
+                                    to="/">Đăng nhập</NavLink>
+                            </div>
+                        }
                         <Form>
                             <Form.Group controlId="formUsername">
                                 {
@@ -83,7 +107,7 @@ const PlaceOrderComponent = () => {
                                     type="tel"
                                     placeholder="Nhập tên người nhận"
                                     value={username}
-                                    onChange={(e) => setUsername(e.target.value) && console.log(e.target.value)}
+                                    onChange={(e) => setUsername(e.target.value)}
                                     onBlur={() => SetUsernameBlank(username.length === 0)}
                                     required />
                             </Form.Group>
@@ -119,19 +143,19 @@ const PlaceOrderComponent = () => {
                                 <br />
                                 <Form.Label
                                     className='fw-bold'>Số điện thoại</Form.Label>
-                                <Form.Control 
-                                type="tel" 
-                                placeholder="Nhập số điện thoại" 
-                                value={phoneNumber} 
-                                onChange={(e) => setPhoneNumber(e.target.value)} 
-                                onBlur={() => setPhoneNumberBlank(phoneNumber.length === 0)}/>
+                                <Form.Control
+                                    type="tel"
+                                    placeholder="Nhập số điện thoại"
+                                    value={phoneNumber}
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                    onBlur={() => setPhoneNumberBlank(phoneNumber.length === 0)} />
                             </Form.Group>
                             <Form.Group>
                                 <Form.Label>Phương thức đặt hàng: COD</Form.Label>
                             </Form.Group>
                             <Button
                                 variant="dark"
-                                onClick={HandlePlaceOrder}
+                                onClick={() => SetModalShow(true)}
                                 disabled={username.length === 0 || address.length === 0 || phoneNumber.length === 0 || totalPrice === 0}>Đặt hàng</Button>
                         </Form>
                     </Col>
@@ -221,11 +245,7 @@ const PlaceOrderComponent = () => {
                     </Button>
                     <Button
                         variant="dark"
-                        onClick={() => {
-                            CountDown(countDown);
-                            setNavigateShedule(true);
-                            setTimeOutNavigate(setInterval(() => navigate("/Shop"), 5000));
-                        }}>
+                        onClick={HandlePlaceOrder}>
                         Đồng ý
                     </Button>
                 </Modal.Footer>

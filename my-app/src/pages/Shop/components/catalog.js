@@ -9,7 +9,7 @@ const ShopCataLog = ({ items }) => {
     const addToCartAction = (item) => {
         const parameter = {
             item: {
-                id: item.id,
+                productId: item.id,
                 name: item.name,
                 quantity: 1,
                 price: item.price

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { SetItem } from "../../../store/action/product";
 
-import fetching from "../../../services/api/fetchBEHost";
+import fetching from "../../../services/";
 import ShopSearchZone from "./searchZone";
 import ShopCataLog from "./catalog";
 

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 import LeftButton from "./leftButton";
 import RightButton from "./rightButton";
+import nothing from "../assets/img/2096.jpg"
 const TwoLayerItem = lazy(() => import("./TwoLayerItem.js"))
 
 const sampleImgSrc = "https://img.freepik.com/free-vector/chocolate-cookies-biscuit-cartoon-vector-icon-illustration-food-object-icon-isolated-flat_138676-13050.jpg?t=st=1724835529~exp=1724839129~hmac=69737c2ceb024f00f19498f07966d8401f1ae7b71dd87d81f4895e0217d985c0&w=740";
@@ -20,17 +21,21 @@ const ShortListTLI = memo(({ items, addToCartAction }) => {
         <div className="list short">
             {(selectIndex > 0) && <LeftButton className="short--leftButton" onClick={() => setSelectIndex(selectIndex - 1)}></LeftButton>}
             {
-                itemOnView.map((element, index) => {
-                    return (
-                        <TwoLayerItem
-                            addToCartAction={addToCartAction}
-                            src={element?.src ? element?.src : sampleImgSrc}
-                            key={index}
-                            itemName={element?.name}
-                            itemPrice={element?.price}
-                            itemID={element?.id}></TwoLayerItem>
-                    )
-                })
+                items.length > 0 ?
+                    itemOnView.map((element, index) => {
+                        return (
+                            <TwoLayerItem
+                                addToCartAction={addToCartAction}
+                                src={element?.src ? element?.src : sampleImgSrc}
+                                key={index}
+                                itemName={element?.name}
+                                itemPrice={element?.price}
+                                itemID={element?.id}></TwoLayerItem>
+                        )
+                    }) : <>
+                        <img src={nothing} alt="nothing" className="img-fluid" />
+                        <div className="fw-bold p-5">There aren't nothing</div>
+                    </>
             }
             {(selectIndex < items.length - 3) && <RightButton className="short--rightButton" onClick={() => setSelectIndex(selectIndex + 1)}></RightButton>}
         </div>

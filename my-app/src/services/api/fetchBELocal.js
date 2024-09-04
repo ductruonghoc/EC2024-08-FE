@@ -1,6 +1,6 @@
 const fetching = async (url, props) => {
   try {
-    const response = await fetch(`http://localhost:3001/${url}`, props);
+    const response = await fetch(`http://localhost:8000/${url}`, props);
 
     if (!response.ok) {
       throw new Error(response.status);

@@ -7,21 +7,15 @@ const initialState = {
     role: undefined,
     address: undefined,
     phoneNumber: undefined,
-    id: undefined
+    id: undefined,
+    token: undefined
 }
 
 const ClientInfoReducer = (state = initialState, action) => {
     switch (action.type) {
       case SETCLIENT:
         return{
-            ...state,
-            account: action.payload?.account,
-            password: action.payload?.password,
-            name: action.payload?.name,
-            role: action.payload?.role,
-            address: action.payload?.address,
-            phoneNumber: action.payload?.phoneNumber,
-            id: action.payload?.id
+            ...action.payload
         }
       default:
         return state;

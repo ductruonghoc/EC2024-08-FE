@@ -8,7 +8,7 @@ const Header = ({ tag, directHome, contactShow = true }) => {
     <div className="container-fluid d-inline-flex align-items-center justify-content-between h-100">
       <div
         className='h-100 w-30'
-        onClick={() => directHome()}
+        onClick={() => directHome && directHome()}
         style={{cursor: "pointer"}}>
         <BranchComponent tag={tag} />
       </div>

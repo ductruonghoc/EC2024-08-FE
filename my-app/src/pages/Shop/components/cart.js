@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { useDispatch } from 'react-redux';
 import { RemoveCartItem } from '../../../store/action/cart';
 import { useNavigate } from 'react-router-dom';
-const Cart = ({ cartItems, handleClose, show }) => {
+const Cart = ({ cartItems, handleClose, show, setShow }) => {
   const dispatch = useDispatch();
   const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ const Cart = ({ cartItems, handleClose, show }) => {
         </ListGroup>
         <h4>Tổng cộng: {total.toLocaleString('en-EN')} VND</h4>
         <div className='row justify-content-center'>
-          <Button variant="dark" onClick={() => navigate("/Shop/Placeorder")}>Đặt hàng</Button>
+          <Button variant="dark" onClick={() => navigate("/Shop/Placeorder") || setShow(false)}>Đặt hàng</Button>
         </div>
       </Offcanvas.Body>
 

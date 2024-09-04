@@ -4,16 +4,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import "../../../assets/css/button.css";
 import { SetClient } from '../../../store/action/client_info';
 import { useNavigate } from 'react-router-dom';
-import fetching from '../../../services/api/fetchBEHost';
+import fetching from '../../../services';
 
 
 const LoginForm = () => {
     //State
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [token, setToken] = useState(undefined);
+    const [token, setToken] = useState("");
     const [falseCredentials, setFalseCredentials] = useState(false);
-    const [tokenExpired, setTokenExpired] = useState(false);
+    const [tokenExpired, setTokenExpired] = useState(0);
     //Redux dispatch
     const dispatch = useDispatch();
     //Redux store props state
@@ -38,7 +38,8 @@ const LoginForm = () => {
         fetching(
             "api/user/login",
             option
-        ).then(result => setToken(result.token)) //Set receving token
+        ).then(result => setToken(result.token) ||
+            localStorage.setItem('AuthToken', result.token)) //Set receving token
             .catch(error => {
                 setFalseCredentials(error);
             });
@@ -46,7 +47,7 @@ const LoginForm = () => {
         // dispatch(SetClient(client))
     };
     useEffect(() => {
-        if (token === undefined) {
+        if (token.length === 0) {
             return;//Basecase
         }
         const option = {
@@ -57,40 +58,40 @@ const LoginForm = () => {
         fetching(
             "api/user/profile",
             option
-        ).then(result =>
-            dispatch(SetClient(result)) &&
-            localStorage.setItem('AuthToken', token)) //Set receving token
+        ).then(result => dispatch(SetClient({ ...result, token: token }))) //Set receving profile
             .catch(error => {
                 localStorage.removeItem('AuthToken');
                 setTokenExpired(error);
             });
-
-    }, [token, tokenExpired, dispatch])//Token handler
+    }, [token, setTokenExpired, dispatch])//Token handler
     useEffect(() => {
-        const client = JSON.parse(localStorage.getItem('client'))
-        if (client) {
-            dispatch(SetClient(client))
+        const cacheToken = localStorage.getItem('AuthToken');
+        if (cacheToken !== null) {
+            setToken(cacheToken);
         }
-    }, [dispatch])//Check in the cache
+    }, [setToken])//Check in the cache
     useEffect(() => {
-        switch (client.role) {
-            case "user":
-                navigate("/Shop")
-                break;
-            case "staff":
-                navigate("/Staff")
-                break;
-            case "admin":
-                navigate("/Manager")
-                break;
-            default:
-                break;
+        if (token.length !== 0) {
+            switch (client.role) {
+                case "user":
+                    navigate("/Shop")
+                    break;
+                case "staff":
+                    navigate("/Staff")
+                    break;
+                case "admin":
+                    navigate("/Manager")
+                    break;
+                default:
+                    break;
+            }
         }
-    }, [client, navigate])//Listen to account state change and navigate to its
+    }, [client, navigate, token])//Listen to account state change and navigate to its
 
     return (
         <div className='col-4'>
-            {tokenExpired &&
+            {tokenExpired === 0 &&
+
                 <Alert>
                     <AlertHeading variant="warning">
                         Phiên đăng nhập hết hạn

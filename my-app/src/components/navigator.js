@@ -5,10 +5,11 @@ import IconButton from "./iconButton";
 import NextIcon from "../assets/svg/next.svg"
 import "../assets/css/navigator.css"
 import defaultAvatar from "../assets/img/OIG3.jpg"
+import { Badge, Button } from "react-bootstrap";
 
 const Navigator = ({ className = "nav myNav", items = [], isExpand = false, setExpand = null }) => {
     const [sizeChangeIcon, setSizeChangeIcon] = useState(BackIcon);
-    const account = items.filter(e => e.type === "account")?.[0] 
+    const account = items.filter(e => e.type === "account")?.[0]
     const offCanvas = items.filter(i => i.type === "offCanvas");
     useEffect(() => {
         if (isExpand)
@@ -35,23 +36,34 @@ const Navigator = ({ className = "nav myNav", items = [], isExpand = false, setE
                     <div className="container-fluid p-1 d-flex flex-column align-items-center">
                         <img
                             src={account?.src ? account?.src : defaultAvatar}
-                            className={`${isExpand ? "col-9" : "col-12"} rounded-4 img-thumbnail`} alt="account" />
-                        {isExpand && <p>{account?.name ? account?.name : "Guest"}</p>}
+                            className={`${isExpand ? "col-9" : "col-12"} rounded-4 img-thumbnail`}
+                            alt="account" />
+                        {isExpand &&
+                            <>
+                                <p>{account?.name ? account?.name : "Guest"}</p>
+                                <Button 
+                                    variant="link"
+                                    onClick={() => account?.onDirect && account.onDirect()}
+                                    >{account?.directLabel}</Button>
+                            </>
+                        }
                     </div>
                 </div>
             </li>
             {
                 offCanvas.length > 0 ?
-                offCanvas.map((i, idx) => (
-                    <li className="nav-item" key={idx}>
-                        <div
-                            className="nav-link item"
-                            onClick={i["action"]}>
-                            <IconButton svg={i["icon"]}></IconButton> {isExpand && <div className="navItem--describe">{i["describe"]}</div>}
-                        </div>
-                    </li>
-                )) :
-                <></>
+                    offCanvas.map((i, idx) => (
+                        <li className="nav-item" key={idx}>
+                            <div
+                                className="nav-link item"
+                                onClick={i["action"]}>
+                                <IconButton svg={i["icon"]}></IconButton>
+                                {i.haveBadge && <Badge bg="secondary" className="d-flex align-items-center">{i.badgeValue}</Badge>} 
+                                {isExpand && <div className="navItem--describe">{i["describe"]}</div>}
+                            </div>
+                        </li>
+                    )) :
+                    <></>
             }
             {
                 items.map((e, i) => (
