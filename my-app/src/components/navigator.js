@@ -58,7 +58,7 @@ const Navigator = ({ className = "nav myNav", items = [], isExpand = false, setE
                                 className="nav-link item"
                                 onClick={i["action"]}>
                                 <IconButton svg={i["icon"]}></IconButton>
-                                {i.haveBadge && <Badge bg="secondary" className="d-flex align-items-center">{i.badgeValue}</Badge>} 
+                                {i.haveBadge && <Badge pill bg="danger" className="d-flex align-items-center">{i.badgeValue}</Badge>} 
                                 {isExpand && <div className="navItem--describe">{i["describe"]}</div>}
                             </div>
                         </li>
